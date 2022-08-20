@@ -1,0 +1,28 @@
+"""An object that has an author."""
+interface Authored {
+  """The author of this object."""
+  author: Identity!
+}
+
+"""Represents an identity"""
+type Identity {
+  """The identifier for this identity"""
+  id: String!
+  """The name of the person, if known."""
+  name: String
+}
+
+type Bug implements Authored {
+  """The identifier for this bug"""
+  id: String!
+  author: Identity!
+  comments: [Comment!]!
+}
+
+"""Represents a comment on a bug."""
+type Comment implements Authored {
+  """The author of this comment."""
+  author: Identity!
+  """The message of this comment."""
+  message: String!
+}

@@ -1,6 +1,6 @@
 package lazyloading
 
-import "gqlgen-issue/graph/model/types"
+import "github.com/MichaelMure/gqlgen-issue/graph/model/types"
 
 type IdentityWrapper interface {
 	Id() string
@@ -8,14 +8,18 @@ type IdentityWrapper interface {
 }
 
 // in the original code, does lazy loading and change a bit the interface (added error)
-type lazyIdentity struct {
+type LazyIdentity struct {
 	i types.Identity
 }
 
-func (l lazyIdentity) Id() string {
+func NewLazyIdentity(i types.Identity) *LazyIdentity {
+	return &LazyIdentity{i: i}
+}
+
+func (l LazyIdentity) Id() string {
 	return l.i.Id
 }
 
-func (l lazyIdentity) Name() (string, error) {
+func (l LazyIdentity) Name() (string, error) {
 	return l.i.Name, nil
 }

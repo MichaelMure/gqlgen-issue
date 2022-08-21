@@ -19,7 +19,11 @@ resolver:
   package: graph
 
 autobind:
-  - "gqlgen-issue/graph/model/types"
-  - "gqlgen-issue/graph/model/lazyloading"
+  - "github.com/MichaelMure/gqlgen-issue/graph/model/lazyloading"
+  - "github.com/MichaelMure/gqlgen-issue/graph/model/types"
 
-
+models:
+  Identity:
+    model: github.com/MichaelMure/gqlgen-issue/graph/model/lazyloading.IdentityWrapper
+  Bug:
+    model: github.com/MichaelMure/gqlgen-issue/graph/model/lazyloading.BugWrapper

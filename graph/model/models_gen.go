@@ -3,12 +3,12 @@
 package model
 
 import (
-	"gqlgen-issue/graph/model/types"
+	"github.com/MichaelMure/gqlgen-issue/graph/model/lazyloading"
 )
 
 // An object that has an author.
 type Authored interface {
 	IsAuthored()
 	// The author of this object.
-	GetAuthor() *types.Identity
+	GetAuthor() lazyloading.IdentityWrapper
 }
